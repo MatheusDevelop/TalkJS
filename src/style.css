@@ -1,0 +1,22 @@
+body{
+    background: #1b1b1b; 
+    
+    background-size: auto;
+    background-repeat: repeat;
+}
+::-webkit-scrollbar {
+    width:3px;
+    height: 3px;
+    }
+     
+    /* aqui é para personalizar o fundo da barra, neste caso estou colocando um fundo cinza escuro*/
+    ::-webkit-scrollbar-track {
+    background:transparent;
+    }
+     
+    /* aqui é a alça da barra, que demonstra a altura que você está na página
+    estou colocando uma cor azul clara nela*/
+    ::-webkit-scrollbar-thumb {
+    background: #EFEEEE;
+    }
+

@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter,Switch,Route,Link} from 'react-router-dom'
+import Header from './Components/Header/Header'
+import Talk from './Pages/Talk'
+import Login from './Pages/Login'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Redux
+import {connect} from 'react-redux'
+
+
+function App(props) {
+  let logged=props.logged;
+  return(
+    
+      <BrowserRouter>
+
+        <Header />
+        <Switch>
+          <Route exact path="/" >
+            {logged ? <Talk /> : <Login /> }
+          </Route>
+        </Switch>
+
+      </BrowserRouter>
+    
+    
+  )
 }
-
-export default App;
+const mapStateToProps = (state)=>({
+    logged:state.userData.status
+})
+export default connect(mapStateToProps)(App);
